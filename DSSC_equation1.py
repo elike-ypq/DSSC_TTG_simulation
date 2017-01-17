@@ -24,14 +24,13 @@ miu=0.82
 arfa=2568*(1-P)*(P+2.89)
 D=a*math.pow(math.fabs(P-Pc),miu)
 l=math.sqrt(D*tao)
-print (l)
+#print (l)
 #D is the electron diffusion parameter,tao is the electron lifetime,fai0 is the optical efficiency of the glass cover,and arfa is the light absorption coefficient of the porous electrode
 fai=fai0*yita_opt
 #kB is the Boltzmann constant,d is the thin film thickness, Tref is the operating temprature at the reference condition, J is the current density of the DSSC.
 #G=100mW/cm^2;
 #yita_opt is the optical efficient of the glass cover;
 #because of the effeciency of tempreture 
-
 J_sc=q*fai*l*arfa/(1-l*l*arfa*arfa)*(-l*arfa+math.tanh(d/l)+l*arfa*math.exp(-d*arfa)/math.cosh(d/l))
 V_func=lambda J : k_B*T_ref*M/q*math.log1p(l*(J_sc-J)/(q*D*n0*math.tanh(d/l)))-k_B*T_ref/q*math.log1p(J/(A_*T_ref**2*math.exp(-q*fai_b/(k_B*T_ref))))
 #find the max current density J_sc
